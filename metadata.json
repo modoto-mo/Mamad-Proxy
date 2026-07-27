@@ -1,0 +1,6 @@
+{
+  "name": "Mamad Proxy",
+  "description": "تستر سرعت و پینگ پروکسی‌های MTProto تلگرام با قابلیت اتصال مستقیم و مرتب‌سازی خودکار",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
