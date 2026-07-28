@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- HERO LOGO & TITLE -->
-<img src="https://raw.githubusercontent.com/modoto-mo/Mamad-Proxy/main/app/src/main/res/drawable/ic_hero_banner.png" alt="Mamad Proxy Banner" width="100%" style="border-radius: 20px; margin-bottom: 20px;" />
+<img src="https://raw.githubusercontent.com/modoto-mo/Mamad-Proxy/main/app/src/main/res/drawable/ic_hero_banner.jpg" alt="Mamad Proxy Banner" width="100%" style="border-radius: 20px; margin-bottom: 20px;" />
 
 # ⚡ MAMAD PROXY ⚡
 ### 💎 *Next-Gen Glassmorphic Telegram Proxy Manager & Speed Tester for Android* 💎
