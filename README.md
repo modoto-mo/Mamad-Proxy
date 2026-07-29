@@ -111,7 +111,7 @@
       <img src="docs/en/screenshots/local.jpg" width="220" alt="Local Proxies" />
     </td>
     <td align="center" width="33%">
-      <b>⚙️ Subscriptions & Settings</b><br/><br/>
+      <b>⚙️ Settings</b><br/><br/>
       <img src="docs/en/screenshots/settings.jpg" width="220" alt="Settings Screen" />
     </td>
   </tr>
