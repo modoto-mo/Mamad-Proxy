@@ -111,7 +111,7 @@
       <img src="docs/fa/screenshots/local.jpg" width="220" alt="پروکسی‌های لوکال" />
     </td>
     <td align="center" width="33%">
-      <b>⚙️ سابسکریپشن و تنظیمات</b><br/><br/>
+      <b>⚙️ تنظیمات</b><br/><br/>
       <img src="docs/fa/screenshots/settings.jpg" width="220" alt="تنظیمات" />
     </td>
   </tr>
