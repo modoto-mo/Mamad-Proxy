@@ -104,20 +104,18 @@
   <tr>
     <td align="center" width="33%">
       <b>📱 Home & Proxy List</b><br/><br/>
-      <img src="docs/screenshots/home.png" width="220" alt="Home Screen" />
+      <img src="docs/en/screenshots/home.png" width="220" alt="Home Screen" />
     </td>
     <td align="center" width="33%">
       <b>📁 Local Proxies</b><br/><br/>
-      <img src="docs/screenshots/local.png" width="220" alt="Local Proxies" />
+      <img src="docs/en/screenshots/local.png" width="220" alt="Local Proxies" />
     </td>
     <td align="center" width="33%">
       <b>⚙️ Subscriptions & Settings</b><br/><br/>
-      <img src="docs/screenshots/settings.png" width="220" alt="Settings Screen" />
+      <img src="docs/en/screenshots/settings.png" width="220" alt="Settings Screen" />
     </td>
   </tr>
 </table>
-
-<sub>*(Place your app screenshots inside <code>docs/screenshots/</code> to render them here)*</sub>
 
 </div>
 
