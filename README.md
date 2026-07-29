@@ -102,21 +102,17 @@
 
 <table>
   <tr>
-    <td align="center" width="25%">
+    <td align="center" width="33%">
       <b>📱 Home & Proxy List</b><br/><br/>
-      <img src="docs/screenshots/home.png" width="210" alt="Home Screen" />
+      <img src="docs/screenshots/home.png" width="220" alt="Home Screen" />
     </td>
-    <td align="center" width="25%">
-      <b>⚡ Ping Benchmark</b><br/><br/>
-      <img src="docs/screenshots/ping.png" width="210" alt="Ping Benchmark" />
+    <td align="center" width="33%">
+      <b>📁 Local Proxies</b><br/><br/>
+      <img src="docs/screenshots/local.png" width="220" alt="Local Proxies" />
     </td>
-    <td align="center" width="25%">
-      <b>📷 QR Scanner</b><br/><br/>
-      <img src="docs/screenshots/qr.png" width="210" alt="QR Scanner" />
-    </td>
-    <td align="center" width="25%">
-      <b>⚙️ Subscriptions</b><br/><br/>
-      <img src="docs/screenshots/settings.png" width="210" alt="Settings Screen" />
+    <td align="center" width="33%">
+      <b>⚙️ Subscriptions & Settings</b><br/><br/>
+      <img src="docs/screenshots/settings.png" width="220" alt="Settings Screen" />
     </td>
   </tr>
 </table>
