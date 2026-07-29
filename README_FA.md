@@ -4,64 +4,95 @@
 
 <div align="center">
 
-<img src="app/src/main/res/drawable/ic_launcher_foreground_asset_1783275886479.jpg" width="140" height="140" alt="لوگوی ممد پروکسی" />
+  <img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" width="170" height="170" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="لوگوی ممد پروکسی" />
 
-# 🚀 ممد پروکسی (Mamad Proxy)
+  # ⚡ ممد پروکسی (Mamad Proxy) ⚡
+  ### *مدیریت پیشرفته، تست پینگ زنده و اتصال هوشمند به پروکسی‌های MTProto تلگرام*
 
-### مدیریت پیشرفته، تست پینگ زنده و اتصال هوشمند به پروکسی‌های MTProto تلگرام
+  <p align="center">
+    <a href="https://github.com/modoto-mo/Mamad-Proxy/releases/latest">
+      <img src="https://img.shields.io/github/v/release/modoto-mo/Mamad-Proxy?style=for-the-badge&logo=github&color=FF6F00" alt="آخرین ریلیز" />
+    </a>
+    <a href="https://t.me/mamad1vpn">
+      <img src="https://img.shields.io/badge/کانال_تلگرام-@mamad1vpn-26A5E4?style=for-the-badge&logo=telegram" alt="کانال تلگرام" />
+    </a>
+    <a href="https://kotlinlang.org">
+      <img src="https://img.shields.io/badge/کوتلین-2.0.21-7F52FF?style=for-the-badge&logo=kotlin" alt="Kotlin" />
+    </a>
+    <a href="https://developer.android.com/jetpack/compose">
+      <img src="https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4?style=for-the-badge&logo=jetpackcompose" alt="Jetpack Compose" />
+    </a>
+    <a href="https://developer.android.com/about/versions/nougat">
+      <img src="https://img.shields.io/badge/اندروید-7.0%2B-3DDC84?style=for-the-badge&logo=android" alt="نسخه اندروید" />
+    </a>
+    <a href="LICENSE">
+      <img src="https://img.shields.io/badge/مجوز-MIT-green?style=for-the-badge" alt="MIT License" />
+    </a>
+  </p>
 
-[![ریلیزها](https://img.shields.io/github/v/release/dorostkar/mamad-proxy?style=for-the-badge&logo=github&color=FF6F00)](../../releases/latest)
-[![کانال تلگرام](https://img.shields.io/badge/کانال_تلگرام-@mamad1vpn-26A5E4.svg?style=for-the-badge&logo=telegram)](https://t.me/mamad1vpn)
-[![نسخه](https://img.shields.io/badge/نسخه-1.0.4-blue.svg?style=for-the-badge&logo=android)](app/build.gradle.kts)
-[![کوتلین](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
-[![جت‌پک کمپوز](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4.svg?style=for-the-badge&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![حداقل اندروید](https://img.shields.io/badge/حداقل_اندروید-24_(7.0)-3DDC84.svg?style=for-the-badge&logo=android)](https://developer.android.com/about/versions/nougat)
-[![مجوز](https://img.shields.io/badge/مجوز-MIT-green.svg?style=for-the-badge)](LICENSE)
+  <br/>
 
-<br/>
-
-[![دانلود APK](https://img.shields.io/badge/📥_دانلود_مستقیم_فایل_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](../../releases/latest)
-
----
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/modoto-mo/Mamad-Proxy/releases/latest">
+          <b>🚀 دانلود مستقیم APK (نسخه جدید)</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://t.me/mamad1vpn">
+          <b>📢 کانال تلگرام (@mamad1vpn)</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://t.me/frzmmd">
+          <b>💬 ارتباط با سازنده (@frzmmd)</b>
+        </a>
+      </td>
+    </tr>
+  </table>
 
 </div>
 
-## 📦 دانلود مستقیم برنامه (Releases)
+---
 
-اگر می‌خواهید بدون نیاز به کامپایل کد، مستقیم فایل نصب (APK) را دانلود و استفاده کنید:  
-👉 **[دانلود آخرین نسخه APK از بخش Releases](../../releases/latest)**
+<br/>
+
+## 🎯 درباره برنامه
+
+<table>
+  <tr>
+    <td dir="rtl">
+      <h3>⚡ سرعت بالا و بنچمارک دقیق پینگ</h3>
+      <b>ممد پروکسی (Mamad Proxy)</b> یک برنامه بومی، فوق‌العاده سریع و مدرن برای اندروید است که جهت ارتقای تجربه کاربری در استفاده از پروکسی‌های MTProto تلگرام طراحی شده است. ممد پروکسی با ارائه‌ی <b>موتور تست پینگ زنده سوکت/TCP</b>، تمام پروکسی‌ها را بسنجد و آن‌ها را بر اساس سرعت از سریع‌ترین به کندترین مرتب می‌کند.
+      <br/><br/>
+      این برنامه بر پایه‌ی استانداردهای <b>توسعه مدرن اندروید (MAD)</b>، با فریم‌ورک <b>Jetpack Compose</b>، زبان <b>Kotlin</b> و پایگاه‌داده <b>Room DB</b> ساخته شده و عملکردی روان، شیک و بدون تاخیر ارائه می‌دهد.
+    </td>
+  </tr>
+</table>
+
+<br/>
 
 ---
 
-## 📢 کانال تلگرام و پشتیبانی
+## 🔥 ویژگی‌های کلیدی
 
-- ✈️ **کانال تلگرام**: [@mamad1vpn](https://t.me/mamad1vpn) (دریافت پروکسی‌های پرسرعت، کانفیگ‌ها و آخرین اخبار)
-- 💬 **ارتباط با سازنده در تلگرام**: [@frzmmd](https://t.me/frzmmd)
+<div align="center">
 
----
+| ویژگی | توضیحات | تکنولوژی / معماری |
+| :--- | :--- | :--- |
+| ⚡ **تست پینگ زنده** | سنجش دقیق تاخیر زمانی (پینگ میلی‌ثانیه) با نشانگرهای رنگی هوشمند | Coroutines + Socket Ping |
+| 🔀 **مرتب‌سازی هوشمند** | مرتب‌سازی خودکار پروکسی‌ها از سریع‌ترین به کندترین و حذف پروکسی‌های قطعی | Flow + StateFlow |
+| 🚀 **اتصال یک کلیکه به تلگرام** | اتصال آنی به تلگرام از طریق پروتکل نیتیو `tg://proxy` | Android Intents |
+| 📁 **مدیریت سابسکریپشن** | دسته‌بندی پروکسی‌ها در ساب‌ها، بروزرسانی لینک‌ها و ساخت خودکار ساب از فایل `.mdprxy` | Room DB + Auto-Naming |
+| 📷 **اسکنر و ساخت QR** | اسکن آنی کدهای QR پروکسی و تولید کد QR اختصاصی برای اشتراک‌گذاری | CameraX + ZXing |
+| 📤 **اشتراک‌گذاری آسان** | ارسال پروکسی‌ها یا ساب‌های کامل برای دوستان با یک لمس | Native Share Sheet |
+| 🎨 **طراحی Material 3** | کارت‌های گلاسمورفیسم شیک همراه با پشتیبانی کامل از حالت شب و روز | Dynamic Color / M3 |
+| 🌐 **پشتیبانی ۲ زبانه** | محیط کامل انگلیسی و فارسی (فارسی) با قابلیت تغییر زبان در لحظه | Localization Engine |
 
-## 🌟 درباره پروژه
+</div>
 
-**ممد پروکسی (Mamad Proxy)** یک اپلیکیشن بومی، فوق‌العاده سریع و مدرن برای اندروید است که جهت ارتقای تجربه کاربری در استفاده از پروکسی‌های MTProto تلگرام طراحی شده است.
-
-پیدا کردن پروکسی‌های سالم، تست سرعت، مدیریت لیست‌های پروکسی و حذف گزینه‌های کند یا قطعی همیشه چالش‌برانگیز بوده است. **ممد پروکسی** با ارائه‌ی **بنچمارک زنده پینگ سوکت/TCP**، **مرتب‌سازی هوشمند خودکار بر اساس سرعت**، **مدیریت پیشرفته سابسکریپشن‌ها** و **اتصال مستقیم با یک کلیک**، این تجربه را به سطح جدیدی می‌برد.
-
-این برنامه بر پایه‌ی آخرین استانداردهای **توسعه مدرن اندروید (MAD)**، با فریم‌ورک **Jetpack Compose**، زبان **Kotlin** و پایگاه‌داده **Room DB** ساخته شده و واسط کاربری بسیار روان، شیک و جذابی دارد.
-
----
-
-## ✨ ویژگی‌های اصلی
-
-- ⚡ **تست پینگ و سرعت زنده**: سنجش دقیق تاخیر زمانی (پینگ به میلی‌ثانیه) پروکسی‌ها با نشانگرهای رنگی هوشمند (سبز برای عالی، زرد برای متوسط، قرمز برای کند).
-- 🔀 **مرتب‌سازی و فیلتر هوشمند**: مرتب‌سازی خودکار پروکسی‌ها از سریع‌ترین به کندترین و قابلیت فیلتر پروکسی‌های زنده/سریع با یک لمس.
-- 🚀 **اتصال مستقیم و سریع به تلگرام**: اتصال بی‌درنگ به تلگرام با استفاده از پروتکل استاندارد `tg://proxy` یا تلگرام وب/کلاینت رسمی.
-- 📁 **مدیریت پیشرفته سابسکریپشن‌ها**: دسته‌بندی پروکسی‌ها در ساب‌های اختصاصی، بروزرسانی از طریق لینک، متون خام یا فایل‌های `.mdprxy`.
-- 📦 **ایجاد خودکار ساب از فایل**: با وارد کردن فایل‌های `.mdprxy` یا متنی، برنامه به‌طور خودکار یک ساب جدید با نام همان فایل (بدون پسوند) می‌سازد!
-- 📷 **اسکنر و سازنده QR Code مدرن**: اسکن آنی کدهای QR پروکسی با دوربین (CameraX + ZXing) و تولید QR Code اختصاصی برای اشتراک‌گذاری پروکسی‌ها و ساب‌ها.
-- 📤 **اشتراک‌گذاری آسان**: ارسال پروکسی‌ها یا ساب‌های کامل برای دوستان با یک کلیک.
-- 🎨 **طراحی Material 3 و حالت شب/روز**: رابط کاربری شیک، کارت‌های مدرن با افکت‌های گلاسمورفیسم، و پشتیبانی کامل از تم تاریک و روشن.
-- 🌐 **پشتیبانی دو زبانه**: دارای محیط کامل **فارسی** و **انگلیسی** با قابلیت تغییر زبان درون اپلیکیشن.
-- 🔐 **حفظ حریم خصوصی و ذخیره‌سازی آفلاین**: تمامی اطلاعات و ساب‌ها به‌صورت امن در دیتابیس محلی (Room DB) دستگاه ذخیره می‌شوند و هیچ اطلاعاتی ارسال نمی‌شود.
+<br/>
 
 ---
 
@@ -69,108 +100,128 @@
 
 <div align="center">
 
-| 📱 صفحه اصلی و پروکسی‌ها | ⚡ تست پینگ زنده | 📷 اسکن و ساخت QR | ⚙️ سابسکریپشن و تنظیمات |
-| :---: | :---: | :---: | :---: |
-| <img src="docs/screenshots/home.png" width="220" alt="صفحه اصلی" /> | <img src="docs/screenshots/ping.png" width="220" alt="تست پینگ" /> | <img src="docs/screenshots/qr.png" width="220" alt="اسکنر QR" /> | <img src="docs/screenshots/settings.png" width="220" alt="تنظیمات" /> |
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <b>📱 صفحه اصلی و پروکسی‌ها</b><br/><br/>
+      <img src="docs/screenshots/home.png" width="210" alt="صفحه اصلی" />
+    </td>
+    <td align="center" width="25%">
+      <b>⚡ تست پینگ زنده</b><br/><br/>
+      <img src="docs/screenshots/ping.png" width="210" alt="تست پینگ" />
+    </td>
+    <td align="center" width="25%">
+      <b>📷 اسکنر QR Code</b><br/><br/>
+      <img src="docs/screenshots/qr.png" width="210" alt="اسکنر QR" />
+    </td>
+    <td align="center" width="25%">
+      <b>⚙️ سابسکریپشن‌ها</b><br/><br/>
+      <img src="docs/screenshots/settings.png" width="210" alt="تنظیمات" />
+    </td>
+  </tr>
+</table>
 
-*(تصاویر برنامه خود را در مسیر `docs/screenshots/` قرار دهید تا در این بخش نمایش داده شوند)*
+<sub>*(تصاویر برنامه خود را در پوشه <code>docs/screenshots/</code> قرار دهید تا در این بخش نمایش داده شوند)*</sub>
 
 </div>
 
----
-
-## 🛠️ تکنولوژی‌های استفاده شده (Tech Stack)
-
-این پروژه با معماری **Clean Architecture** و الگوی **MVVM (Model-View-ViewModel)** پیاده‌سازی شده است:
-
-| بخش | تکنولوژی / کتابخانه |
-| :--- | :--- |
-| **زبان برنامه نویسی** | ۱۰۰٪ [کوتلین (Kotlin)](https://kotlinlang.org/) |
-| **رابط کاربری (UI)** | [Jetpack Compose](https://developer.android.com/jetpack/compose) همراه با Material Design 3 |
-| **معماری** | MVVM، Kotlin Coroutines، StateFlow، ViewModel |
-| **دیتابیس محلی** | [Room Database](https://developer.android.com/training/data-storage/room) همراه با KSP |
-| **دوربین و QR Code** | [CameraX](https://developer.android.com/training/camerax) و [ZXing Core](https://github.com/zxing/zxing) |
-| **شبکه و پردازش داده** | OkHttp, Retrofit, Moshi |
-| **تست نویسی** | Robolectric, Roborazzi (تست بصری اسکرین‌شات)، JUnit4 |
-| **ابزار بیلد** | Gradle (Kotlin DSL `.gradle.kts`) |
+<br/>
 
 ---
 
-## 🚀 نحوه بیلد و اجرا
+## 🛠️ معماری و تکنولوژی‌ها
+
+<div align="center">
+
+```
+  ┌─────────────────────────────────────────────────────────┐
+  │                 Jetpack Compose (UI)                    │
+  ├─────────────────────────────────────────────────────────┤
+  │            ViewModel + StateFlow + Coroutines           │
+  ├─────────────────────────────────────────────────────────┤
+  │         Room Database   │   Socket & Ping Engine        │
+  └─────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+<details>
+<summary><b>🔍 مشاهده جزئیات فنی و کتابخانه‌ها</b></summary>
+
+<br/>
+
+- **زبان:** ۱۰ link کوتلین (100% Kotlin)
+- **رابط کاربری:** Jetpack Compose با Material Design 3
+- **معماری:** MVVM (Model-View-ViewModel) + Clean Architecture
+- **پردازش همزمان:** Kotlin Coroutines & StateFlow
+- **پایگاه‌داده محلی:** Room Database به همراه KSP
+- **پردازش تصویر و دوربین:** CameraX + ZXing Code Engine
+- **شبکه و پارسر:** OkHttp + Retrofit + Moshi
+- **تست‌نویسی:** Robolectric, Roborazzi Screenshot Testing, JUnit4
+- **ابزار بیلد:** Gradle Kotlin DSL (`build.gradle.kts`)
+
+</details>
+
+<br/>
+
+---
+
+## 🚀 نحوه بیلد و اجرای پروژه
+
+<details>
+<summary><b>🛠️ راهنمای گام به گام توسعه‌دهندگان</b></summary>
+
+<br/>
 
 ### پیش‌نیازها
+- **اندروید استودیو:** نسخه Ladybug / Koala یا جدیدتر
+- **نسخه جی‌دی‌کی:** Java 17 یا 21
+- **Android SDK:** API Level 36 (حداقل اندروید: 24 / Android 7.0)
 
-- **اندروید استودیو**: نسخه Ladybug / Koala یا جدیدتر
-- **JDK**: نسخه ۱۷ یا ۲۱
-- **Android SDK**: نسخه ۳۶ (حداقل اندروید پشتیبانی شده: API 24 / Android 7.0)
+### دستورات بیلد سریع
+```bash
+# ۱. کلون کردن مخزن پروژه
+git clone https://github.com/modoto-mo/Mamad-Proxy.git
+cd Mamad-Proxy
 
-### مراحل اجرا
+# ۲. بیلد نسخه دیباگ APK
+./gradlew assembleDebug
 
-۱. **کلون کردن مخزن پروژه:**
-   ```bash
-   git clone https://github.com/your-username/mamad-proxy.git
-   cd mamad-proxy
-   ```
-
-۲. **باز کردن در اندروید استودیو:**
-   - اندروید استودیو را باز کرده و گزینه‌ی **Open** را انتخاب کنید.
-   - پوشه‌ی `mamad-proxy` را انتخاب کرده و منتظر همگام‌سازی Gradle بمانید.
-
-۳. **بیلد و اجرا از طریق ترمینال (اختیاری):**
-   ```bash
-   # بیلد نسخه دیباگ
-   ./gradlew assembleDebug
-
-   # اجرای تست‌های واحد
-   ./gradlew testDebugUnitTest
-   ```
-
-۴. **نصب روی دستگاه:**
-   - گوشی خود را وصل کرده یا شبیه‌ساز (Emulator) را روشن کنید.
-   - دکمه **Run** (`Shift + F10`) را در اندروید استودیو بزنید، یا فایل APK ساخته شده در مسیر زیر را نصب کنید:
-     `app/build/outputs/apk/debug/app-debug.apk`
-
----
-
-## 📂 ساختار پروژه
-
-```
-mamad-proxy/
-├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/example/
-│   │   │   │   ├── MainActivity.kt        # نقطه ورود و مسیریابی اصلی
-│   │   │   │   ├── ProxyViewModel.kt      # مدیریت وضعیت و منطق تست پینگ
-│   │   │   │   ├── LocalProxiesScreen.kt  # رابط کاربری پروکسی‌ها و ساب‌ها
-│   │   │   │   ├── QrCodeGenerator.kt     # ساخت و اسکن کد QR
-│   │   │   │   ├── LocalProxyDao.kt       # دسترسی به پایگاه‌داده Room
-│   │   │   │   └── AppDatabase.kt         # تنظیمات دیتابیس
-│   │   │   └── res/                      # تصاویر، آرایه‌ها و فایل‌های XML
-│   │   └── test/                          # تست‌های واحد و Roborazzi
-│   └── build.gradle.kts                   # کانفیگ و کتابخانه‌های برنامه
-├── gradle/                                # گرادل و کاتالوگ نسخه‌ها
-├── README.md                              # راهنمای انگلیسی
-└── README_FA.md                           # راهنمای فارسی
+# ۳. اجرای تست‌های واحد
+./gradlew testDebugUnitTest
 ```
 
----
+فایل APK ساخته شده در مسیر زیر قرار می‌گیرد:  
+`<project-root>/app/build/outputs/apk/debug/app-debug.apk`
 
-## 🤝 مشارکت در پروژه
+</details>
 
-مشارکت شما باعث افتخار ماست! اگر ایده یا افزونه‌ای برای بهبود ممد پروکسی دارید:
-
-۱. پروژه را فورک (Fork) کنید.
-۲. یک برانچ جدید برای ویژگی خود بسازید (`git checkout -b feature/AwesomeFeature`).
-۳. تغییرات خود را کامیت کنید (`git commit -m 'Add some AwesomeFeature'`).
-۴. برانچ را پوش کنید (`git push origin feature/AwesomeFeature`).
-۵. یک درخواست ادغام (Pull Request) باز کنید.
+<br/>
 
 ---
 
-## 📜 مجوز (License)
+## 📢 کانال تلگرام و پشتیبانی
 
-این پروژه تحت مجوز MIT منتشر شده است. برای اطلاعات بیشتر فایل `LICENSE` را مطالعه کنید.
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <h3>✈️ کانال رسمی تلگرام</h3>
+      دریافت جدیدترین پروکسی‌های MTProto، کانفیگ‌ها و اخبار.<br/><br/>
+      <a href="https://t.me/mamad1vpn"><b>👉 عضویت در کانال @mamad1vpn</b></a>
+    </td>
+    <td align="center" width="50%">
+      <h3>💬 ارتباط با سازنده</h3>
+      انتقاد، پیشنهاد یا سوالی دارید؟<br/><br/>
+      <a href="https://t.me/frzmmd"><b>👉 پیام به @frzmmd</b></a>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<br/>
 
 ---
 
