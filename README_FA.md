@@ -10,15 +10,35 @@
 
 ### مدیریت پیشرفته، تست پینگ زنده و اتصال هوشمند به پروکسی‌های MTProto تلگرام
 
+[![ریلیزها](https://img.shields.io/github/v/release/dorostkar/mamad-proxy?style=for-the-badge&logo=github&color=FF6F00)](../../releases/latest)
+[![کانال تلگرام](https://img.shields.io/badge/کانال_تلگرام-@mamad1vpn-26A5E4.svg?style=for-the-badge&logo=telegram)](https://t.me/mamad1vpn)
 [![نسخه](https://img.shields.io/badge/نسخه-1.0.4-blue.svg?style=for-the-badge&logo=android)](app/build.gradle.kts)
 [![کوتلین](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
 [![جت‌پک کمپوز](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4.svg?style=for-the-badge&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
 [![حداقل اندروید](https://img.shields.io/badge/حداقل_اندروید-24_(7.0)-3DDC84.svg?style=for-the-badge&logo=android)](https://developer.android.com/about/versions/nougat)
 [![مجوز](https://img.shields.io/badge/مجوز-MIT-green.svg?style=for-the-badge)](LICENSE)
 
+<br/>
+
+[![دانلود APK](https://img.shields.io/badge/📥_دانلود_مستقیم_فایل_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](../../releases/latest)
+
 ---
 
 </div>
+
+## 📦 دانلود مستقیم برنامه (Releases)
+
+اگر می‌خواهید بدون نیاز به کامپایل کد، مستقیم فایل نصب (APK) را دانلود و استفاده کنید:  
+👉 **[دانلود آخرین نسخه APK از بخش Releases](../../releases/latest)**
+
+---
+
+## 📢 کانال تلگرام و پشتیبانی
+
+- ✈️ **کانال تلگرام**: [@mamad1vpn](https://t.me/mamad1vpn) (دریافت پروکسی‌های پرسرعت، کانفیگ‌ها و آخرین اخبار)
+- 💬 **ارتباط با سازنده در تلگرام**: [@frzmmd](https://t.me/frzmmd)
+
+---
 
 ## 🌟 درباره پروژه
 
