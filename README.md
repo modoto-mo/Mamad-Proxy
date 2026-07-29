@@ -220,5 +220,5 @@ The compiled APK will be available at:
 ---
 
 <div align="center">
-  Made with ❤️ For The Brave People Of Iran.
+  Made with ❤️
 </div>
