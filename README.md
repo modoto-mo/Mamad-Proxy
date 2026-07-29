@@ -4,7 +4,7 @@
 
 <div align="center">
 
-<img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" width="140" height="140" alt="Mamad Proxy Logo" />
+<img src="app/src/main/res/drawable//ic_launcher_foreground_asset_1783275886479.jpg" width="140" height="140" alt="Mamad Proxy Logo" />
 
 # 🚀 Mamad Proxy
 
