@@ -4,7 +4,7 @@
 
 <div align="center">
 
-  <img src="app/src/main/res/drawable/ic_launcher_foreground_asset_1783275886479.jpg" width="170" height="170" border-radius=" 50%" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="لوگوی ممد پروکسی" />
+  <img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" width="170" height="170" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="لوگوی ممد پروکسی" />
 
   # ⚡ ممد پروکسی (Mamad Proxy) ⚡
   ### *مدیریت پیشرفته، تست پینگ زنده و اتصال هوشمند به پروکسی‌های MTProto تلگرام*
@@ -102,21 +102,17 @@
 
 <table>
   <tr>
-    <td align="center" width="25%">
+    <td align="center" width="33%">
       <b>📱 صفحه اصلی و پروکسی‌ها</b><br/><br/>
-      <img src="docs/screenshots/home.png" width="210" alt="صفحه اصلی" />
+      <img src="docs/screenshots/home.png" width="220" alt="صفحه اصلی" />
     </td>
-    <td align="center" width="25%">
-      <b>⚡ تست پینگ زنده</b><br/><br/>
-      <img src="docs/screenshots/ping.png" width="210" alt="تست پینگ" />
+    <td align="center" width="33%">
+      <b>📁 پروکسی‌های لوکال</b><br/><br/>
+      <img src="docs/screenshots/local.png" width="220" alt="پروکسی‌های لوکال" />
     </td>
-    <td align="center" width="25%">
-      <b>📷 اسکنر QR Code</b><br/><br/>
-      <img src="docs/screenshots/qr.png" width="210" alt="اسکنر QR" />
-    </td>
-    <td align="center" width="25%">
-      <b>⚙️ سابسکریپشن‌ها</b><br/><br/>
-      <img src="docs/screenshots/settings.png" width="210" alt="تنظیمات" />
+    <td align="center" width="33%">
+      <b>⚙️ سابسکریپشن و تنظیمات</b><br/><br/>
+      <img src="docs/screenshots/settings.png" width="220" alt="تنظیمات" />
     </td>
   </tr>
 </table>
