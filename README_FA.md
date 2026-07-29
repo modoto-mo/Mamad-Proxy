@@ -104,15 +104,15 @@
   <tr>
     <td align="center" width="33%">
       <b>📱 صفحه اصلی و پروکسی‌ها</b><br/><br/>
-      <img src="docs/fa/screenshots/home.png" width="220" alt="صفحه اصلی" />
+      <img src="docs/fa/screenshots/home.jpg" width="220" alt="صفحه اصلی" />
     </td>
     <td align="center" width="33%">
       <b>📁 پروکسی‌های لوکال</b><br/><br/>
-      <img src="docs/fa/screenshots/local.png" width="220" alt="پروکسی‌های لوکال" />
+      <img src="docs/fa/screenshots/local.jpg" width="220" alt="پروکسی‌های لوکال" />
     </td>
     <td align="center" width="33%">
       <b>⚙️ سابسکریپشن و تنظیمات</b><br/><br/>
-      <img src="docs/fa/screenshots/settings.png" width="220" alt="تنظیمات" />
+      <img src="docs/fa/screenshots/settings.jpg" width="220" alt="تنظیمات" />
     </td>
   </tr>
 </table>
