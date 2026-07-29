@@ -4,174 +4,224 @@
 
 <div align="center">
 
-<img src="app/src/main/res/drawable/ic_launcher_foreground_asset_1783275886479.jpg" width="170" height="170" style="border-radius: 40px;" alt="Mamad Proxy Logo" />
+  <img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" width="170" height="170" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="Mamad Proxy Logo" />
 
-# 🚀 Mamad Proxy
+  # ⚡ MAMAD PROXY ⚡
+  ### *The Ultimate MTProto Proxy Manager & Latency Benchmarking Engine for Telegram*
 
-### Next-Gen High-Performance MTProto Proxy Manager & Latency Tester for Telegram
+  <p align="center">
+    <a href="https://github.com/modoto-mo/Mamad-Proxy/releases/latest">
+      <img src="https://img.shields.io/github/v/release/modoto-mo/Mamad-Proxy?style=for-the-badge&logo=github&color=FF6F00" alt="Latest Release" />
+    </a>
+    <a href="https://t.me/mamad1vpn">
+      <img src="https://img.shields.io/badge/Telegram-@mamad1vpn-26A5E4?style=for-the-badge&logo=telegram" alt="Telegram Channel" />
+    </a>
+    <a href="https://kotlinlang.org">
+      <img src="https://img.shields.io/badge/Kotlin-2.0.21-7F52FF?style=for-the-badge&logo=kotlin" alt="Kotlin" />
+    </a>
+    <a href="https://developer.android.com/jetpack/compose">
+      <img src="https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4?style=for-the-badge&logo=jetpackcompose" alt="Jetpack Compose" />
+    </a>
+    <a href="https://developer.android.com/about/versions/nougat">
+      <img src="https://img.shields.io/badge/Android-7.0%2B-3DDC84?style=for-the-badge&logo=android" alt="Android Version" />
+    </a>
+    <a href="LICENSE">
+      <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
+    </a>
+  </p>
 
-[![Releases](https://img.shields.io/github/v/release/modoto-mo/Mamad-Proxy?style=for-the-badge&logo=github&color=FF6F00)](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)
-[![Telegram Channel](https://img.shields.io/badge/Telegram_Channel-@mamad1vpn-26A5E4.svg?style=for-the-badge&logo=telegram)](https://t.me/mamad1vpn)
-[![Version](https://img.shields.io/badge/Version-1.0.4-blue.svg?style=for-the-badge&logo=android)](app/build.gradle.kts)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
-[![Compose](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4.svg?style=for-the-badge&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![MinSDK](https://img.shields.io/badge/Min_SDK-24_(Android_7.0)-3DDC84.svg?style=for-the-badge&logo=android)](https://developer.android.com/about/versions/nougat)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+  <br/>
+
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/modoto-mo/Mamad-Proxy/releases/latest">
+          <b>🚀 DOWNLOAD APK (RELEASES)</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://t.me/mamad1vpn">
+          <b>📢 TELEGRAM CHANNEL (@mamad1vpn)</b>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://t.me/frzmmd">
+          <b>💬 DEVELOPER SUPPORT (@frzmmd)</b>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+---
 
 <br/>
 
-[![Download APK](https://img.shields.io/badge/📥_Download_Latest_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)
+## 🎯 Overview
+
+<table>
+  <tr>
+    <td>
+      <h3>⚡ High-Speed Connection & Benchmarking</h3>
+      <b>Mamad Proxy</b> is a next-generation native Android application crafted to eliminate the hassle of dead links, slow speeds, and cluttered proxy lists in Telegram. Equipped with a real-time <b>TCP/Socket Ping Engine</b>, Mamad Proxy benchmarks MTProto proxies instantly and sorts them from fastest to slowest.
+      <br/><br/>
+      Built using <b>Modern Android Development (MAD)</b> standards, <b>Jetpack Compose</b>, <b>Material Design 3</b>, and <b>Room Database</b> for zero-lag, offline-first performance.
+    </td>
+  </tr>
+</table>
+
+<br/>
 
 ---
 
-</div>
-
-## 📦 Direct Download (Releases)
-
-Want to install the app right away without building from source?  
-👉 **[Download the Latest Release APK](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)** directly from GitHub Releases.
-
----
-
-## 📢 Community & Support
-
-- ✈️ **Telegram Channel**: [@mamad1vpn](https://t.me/mamad1vpn) 
-- 💬 **Developer Contact**: [@frzmmd](https://t.me/frzmmd)
-
----
-
-## 🌟 About the Project
-
-**Mamad Proxy** is a sleek, modern, and powerful native Android application designed to give Telegram users complete control over their connection speed, stability, and proxy management. 
-
-Connecting to Telegram via MTProto proxies often involves dealing with dead links, slow response times, and cluttered proxy lists. **Mamad Proxy** solves this by providing **real-time TCP/socket ping benchmarking**, **automatic proxy sorting by latency**, **subscription management**, and **instant one-tap Telegram integration**.
-
-Built from the ground up using **Modern Android Development (MAD)** principles, Jetpack Compose, Material Design 3, and Room DB, Mamad Proxy delivers a fluid, responsive, and visual experience.
-
----
-
-## ✨ Key Features
-
-- ⚡ **Real-Time Speed & Ping Testing**: Measure real-time socket latency (ms) for any MTProto proxy with color-coded speed indicators (Green for fast, Yellow for medium, Red for slow).
-- 🔀 **Smart Sorting & Filtering**: Automatically sort proxies from fastest to slowest, or filter out inactive proxies with a single click.
-- 🚀 **Direct One-Tap Connection**: Connect instantly to Telegram using native `tg://proxy` protocol handlers or external web launchers.
-- 📁 **Advanced Subscription Management**: Organize proxies into subscription groups, update links dynamically, or import proxy lists directly from files (`.mdprxy`, raw text, or URLs).
-- 📦 **Automated File Import**: Importing `.mdprxy` files automatically generates dedicated subscription lists named after the source file without tedious manual setups.
-- 📷 **Integrated QR Code Scanner & Generator**: Scan proxy QR codes in milliseconds using CameraX + ZXing, or generate custom QR codes to share proxies and full subscriptions with friends.
-- 📤 **Instant Sharing**: Share individual proxies or entire subscriptions easily with native Android share sheets.
-- 🎨 **Material 3 & Dark Mode**: Beautiful, modern UI featuring smooth transitions, glassmorphic card aesthetics, and full Dark/Light theme switching.
-- 🌐 **Bilingual Support**: Fully localized in both **English** and **Persian (فارسی)** with seamless runtime language switching.
-- 🔐 **Privacy-First & Offline Storage**: All proxy lists and local subscriptions are stored securely on-device using SQLite and Room DB. No tracking or external data collection.
-
----
-
-## 📸 App Screenshots
+## 🔥 Key Highlights
 
 <div align="center">
 
-| 📱 Home & Proxy List | ⚡ Ping Benchmark | 📷 QR Scanner & Generator | ⚙️ Subscriptions & Settings |
-| :---: | :---: | :---: | :---: |
-| <img src="docs/screenshots/home.png" width="220" alt="Home Screen" /> | <img src="docs/screenshots/ping.png" width="220" alt="Ping Benchmark" /> | <img src="docs/screenshots/qr.png" width="220" alt="QR Scanner" /> | <img src="docs/screenshots/settings.png" width="220" alt="Settings Screen" /> |
-
-*(Place your app screenshots inside `docs/screenshots/` to display them here)*
+| Feature | Description | Tech Highlight |
+| :--- | :--- | :--- |
+| ⚡ **Real-Time Speed Benchmark** | Measures exact TCP socket response latency (ms) with live speed indicators. | Coroutines + Socket Ping |
+| 🔀 **Smart Auto-Sorting** | Sorts proxies instantly by lowest ping and filters out inactive links. | Flow + StateFlow |
+| 🚀 **One-Tap Telegram Connect** | Connects seamlessly to Telegram using native `tg://proxy` protocol handlers. | Android Intents |
+| 📁 **Subscription Hub** | Manage multiple subscriptions, auto-update links, and auto-parse `.mdprxy` files. | Room DB + Auto-Naming |
+| 📷 **Camera & QR Scanner** | Instant scanning of Proxy QR codes and generating QR codes for easy sharing. | CameraX + ZXing |
+| 📤 **One-Click Share** | Export individual proxies or entire subscription links effortlessly. | Native Share Sheet |
+| 🎨 **Material 3 & Dark Theme** | Glassmorphism card aesthetics with full Light and Dark theme switching. | Dynamic Color / M3 |
+| 🌐 **Bilingual (EN / FA)** | Native support for English and Persian (فارسی) with instant runtime toggle. | Localization Engine |
 
 </div>
 
----
-
-## 🛠️ Tech Stack & Architecture
-
-Mamad Proxy follows **Clean Architecture** and the **MVVM (Model-View-ViewModel)** pattern with Unidirectional Data Flow (UDF).
-
-| Layer | Technology / Library |
-| :--- | :--- |
-| **Language** | 100% [Kotlin](https://kotlinlang.org/) |
-| **UI Framework** | [Jetpack Compose](https://developer.android.com/jetpack/compose) with Material Design 3 |
-| **Architecture** | MVVM, Kotlin Coroutines, StateFlow, ViewModel |
-| **Local Database** | [Room DB](https://developer.android.com/training/data-storage/room) with KSP (Kotlin Symbol Processing) |
-| **Camera & QR** | [CameraX](https://developer.android.com/training/camerax) + [ZXing Core](https://github.com/zxing/zxing) |
-| **Network & Parsing** | OkHttp, Retrofit, Moshi |
-| **Testing** | Robolectric, Roborazzi (Visual Screenshot Testing), JUnit4 |
-| **Build Tooling** | Gradle (Kotlin DSL `.gradle.kts`), Android Gradle Plugin 8.x |
+<br/>
 
 ---
 
-## 🚀 How to Build & Run
+## 📸 App Showcase
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="25%">
+      <b>📱 Home & Proxy List</b><br/><br/>
+      <img src="docs/screenshots/home.png" width="210" alt="Home Screen" />
+    </td>
+    <td align="center" width="25%">
+      <b>⚡ Ping Benchmark</b><br/><br/>
+      <img src="docs/screenshots/ping.png" width="210" alt="Ping Benchmark" />
+    </td>
+    <td align="center" width="25%">
+      <b>📷 QR Scanner</b><br/><br/>
+      <img src="docs/screenshots/qr.png" width="210" alt="QR Scanner" />
+    </td>
+    <td align="center" width="25%">
+      <b>⚙️ Subscriptions</b><br/><br/>
+      <img src="docs/screenshots/settings.png" width="210" alt="Settings Screen" />
+    </td>
+  </tr>
+</table>
+
+<sub>*(Place your app screenshots inside <code>docs/screenshots/</code> to render them here)*</sub>
+
+</div>
+
+<br/>
+
+---
+
+## 🛠️ Architecture & Tech Stack
+
+<div align="center">
+
+```
+  ┌─────────────────────────────────────────────────────────┐
+  │                 Jetpack Compose (UI)                    │
+  ├─────────────────────────────────────────────────────────┤
+  │            ViewModel + StateFlow + Coroutines           │
+  ├─────────────────────────────────────────────────────────┤
+  │         Room Database   │   Socket & Ping Engine        │
+  └─────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+<details>
+<summary><b>🔍 View Full Technical Stack</b></summary>
+
+<br/>
+
+- **Language:** 100% Kotlin
+- **UI Framework:** Jetpack Compose (Material Design 3)
+- **Architecture:** MVVM (Model-View-ViewModel) + Clean Architecture
+- **Asynchronous Engine:** Kotlin Coroutines & StateFlow
+- **Local Database:** Room Database with KSP (Kotlin Symbol Processing)
+- **Scanning & Imaging:** CameraX + ZXing Code Engine
+- **Network & Parsing:** OkHttp + Retrofit + Moshi
+- **Testing:** Robolectric, Roborazzi Screenshot Testing, JUnit4
+- **Build System:** Gradle Kotlin DSL (`build.gradle.kts`)
+
+</details>
+
+<br/>
+
+---
+
+## 🚀 How to Build & Install
+
+<details>
+<summary><b>🛠️ Step-by-Step Developer Setup</b></summary>
+
+<br/>
 
 ### Prerequisites
+- **Android Studio:** Ladybug / Koala or newer
+- **JDK:** Java 17 / 21
+- **Android SDK:** API Level 36 (Minimum SDK: 24 / Android 7.0)
 
-- **Android Studio**: Ladybug / Koala or newer recommended
-- **JDK**: Java 17 or Java 21
-- **Android SDK**: API Level 36 (Minimum SDK: 24 / Android 7.0)
+### Quick Start Commands
+```bash
+# 1. Clone the repository
+git clone https://github.com/modoto-mo/Mamad-Proxy.git
+cd Mamad-Proxy
 
-### Steps
+# 2. Build Debug APK
+./gradlew assembleDebug
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/modoto-mo/Mamad-Proxy.git
-   cd Mamad-Proxy
-   ```
-
-2. **Open in Android Studio:**
-   - Open Android Studio and select **Open**.
-   - Navigate to the `mamad-proxy` folder and click OK.
-   - Wait for Gradle sync to complete.
-
-3. **Build and Run via CLI (Optional):**
-   ```bash
-   # Build Debug APK
-   ./gradlew assembleDebug
-
-   # Run Unit Tests
-   ./gradlew testDebugUnitTest
-   ```
-
-4. **Install on Device:**
-   - Connect your Android device or start an emulator.
-   - Click **Run** (`Shift + F10`) in Android Studio or install the APK located at:
-     `app/build/outputs/apk/debug/app-debug.apk`
-
----
-
-## 📂 Project Structure
-
-```
-mamad-proxy/
-├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/example/
-│   │   │   │   ├── MainActivity.kt        # Main Entry & Navigation
-│   │   │   │   ├── ProxyViewModel.kt      # Core State Management & Ping Logic
-│   │   │   │   ├── LocalProxiesScreen.kt  # Proxy List & Subscription UI
-│   │   │   │   ├── QrCodeGenerator.kt     # QR Generation & Scanning
-│   │   │   │   ├── LocalProxyDao.kt       # Room Database DAO
-│   │   │   │   └── AppDatabase.kt         # Room Database Config
-│   │   │   └── res/                      # Drawables, Strings, XMLs
-│   │   └── test/                          # Unit & Roborazzi Screenshot Tests
-│   └── build.gradle.kts                   # App Dependencies & Config
-├── gradle/                                # Gradle Wrapper & Version Catalogs
-├── README.md                              # English Documentation
-└── README_FA.md                           # Persian Documentation
+# 3. Run Unit Tests
+./gradlew testDebugUnitTest
 ```
 
----
+The compiled APK will be available at:  
+`<project-root>/app/build/outputs/apk/debug/app-debug.apk`
 
-## 🤝 Contributing
+</details>
 
-Contributions are welcome! If you'd like to improve Mamad Proxy, feel free to open an issue or submit a Pull Request.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AwesomeFeature`)
-3. Commit your Changes (`git commit -m 'Add some AwesomeFeature'`)
-4. Push to the Branch (`git push origin feature/AwesomeFeature`)
-5. Open a Pull Request
+<br/>
 
 ---
 
-## 📜 License
+## 📢 Telegram & Developer Contact
 
-Distributed under the MIT License. See `LICENSE` for more information.
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <h3>✈️ Official Telegram Channel</h3>
+      Get high-speed MTProto proxies, VPN updates, and news.<br/><br/>
+      <a href="https://t.me/mamad1vpn"><b>👉 Join @mamad1vpn</b></a>
+    </td>
+    <td align="center" width="50%">
+      <h3>💬 Developer Contact</h3>
+      Feedback, feature requests, or questions?<br/><br/>
+      <a href="https://t.me/frzmmd"><b>👉 Message @frzmmd</b></a>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<br/>
 
 ---
 
