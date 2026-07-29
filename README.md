@@ -10,15 +10,35 @@
 
 ### Next-Gen High-Performance MTProto Proxy Manager & Latency Tester for Telegram
 
+[![Releases](https://img.shields.io/github/v/release/dorostkar/mamad-proxy?style=for-the-badge&logo=github&color=FF6F00)](../../releases/latest)
+[![Telegram Channel](https://img.shields.io/badge/Telegram_Channel-@mamad1vpn-26A5E4.svg?style=for-the-badge&logo=telegram)](https://t.me/mamad1vpn)
 [![Version](https://img.shields.io/badge/Version-1.0.4-blue.svg?style=for-the-badge&logo=android)](app/build.gradle.kts)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
 [![Compose](https://img.shields.io/badge/Jetpack_Compose-Material_3-4285F4.svg?style=for-the-badge&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
 [![MinSDK](https://img.shields.io/badge/Min_SDK-24_(Android_7.0)-3DDC84.svg?style=for-the-badge&logo=android)](https://developer.android.com/about/versions/nougat)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
+<br/>
+
+[![Download APK](https://img.shields.io/badge/📥_Download_Latest_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](../../releases/latest)
+
 ---
 
 </div>
+
+## 📦 Direct Download (Releases)
+
+Want to install the app right away without building from source?  
+👉 **[Download the Latest Release APK](../../releases/latest)** directly from GitHub Releases.
+
+---
+
+## 📢 Community & Support
+
+- ✈️ **Telegram Channel**: [@mamad1vpn](https://t.me/mamad1vpn) 
+- 💬 **Developer Contact**: [@frzmmd](https://t.me/frzmmd)
+
+---
 
 ## 🌟 About the Project
 
