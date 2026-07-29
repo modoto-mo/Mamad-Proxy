@@ -4,13 +4,13 @@
 
 <div align="center">
 
-<img src="app/src/main/res/drawable//ic_launcher_foreground_asset_1783275886479.jpg" width="140" height="140" alt="Mamad Proxy Logo" />
+<img src="app/src/main/res/drawable/ic_launcher_foreground_asset_1783275886479.jpg" width="170" height="170" style="border-radius: 50%;" alt="Mamad Proxy Logo" />
 
 # 🚀 Mamad Proxy
 
 ### Next-Gen High-Performance MTProto Proxy Manager & Latency Tester for Telegram
 
-[![Releases](https://img.shields.io/github/v/release/dorostkar/mamad-proxy?style=for-the-badge&logo=github&color=FF6F00)](../../releases/latest)
+[![Releases](https://img.shields.io/github/v/release/modoto-mo/Mamad-Proxy?style=for-the-badge&logo=github&color=FF6F00)](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)
 [![Telegram Channel](https://img.shields.io/badge/Telegram_Channel-@mamad1vpn-26A5E4.svg?style=for-the-badge&logo=telegram)](https://t.me/mamad1vpn)
 [![Version](https://img.shields.io/badge/Version-1.0.4-blue.svg?style=for-the-badge&logo=android)](app/build.gradle.kts)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-7F52FF.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
@@ -20,7 +20,7 @@
 
 <br/>
 
-[![Download APK](https://img.shields.io/badge/📥_Download_Latest_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](../../releases/latest)
+[![Download APK](https://img.shields.io/badge/📥_Download_Latest_APK-Releases-success?style=for-the-badge&logo=android&logoColor=white)](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)
 
 ---
 
@@ -29,7 +29,7 @@
 ## 📦 Direct Download (Releases)
 
 Want to install the app right away without building from source?  
-👉 **[Download the Latest Release APK](../../releases/latest)** directly from GitHub Releases.
+👉 **[Download the Latest Release APK](https://github.com/modoto-mo/Mamad-Proxy/releases/latest)** directly from GitHub Releases.
 
 ---
 
@@ -108,8 +108,8 @@ Mamad Proxy follows **Clean Architecture** and the **MVVM (Model-View-ViewModel)
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/mamad-proxy.git
-   cd mamad-proxy
+   git clone https://github.com/modoto-mo/Mamad-Proxy.git
+   cd Mamad-Proxy
    ```
 
 2. **Open in Android Studio:**
