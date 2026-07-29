@@ -4,7 +4,7 @@
 
 <div align="center">
 
-  <img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" width="170" height="170" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="Mamad Proxy Logo" />
+  <img src="app/src/main/res/drawable/ic_launcher_foreground_asset_1783275886479.jpg" width="170" height="170" style="border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" alt="Mamad Proxy Logo" />
 
   # ⚡ MAMAD PROXY ⚡
   ### *The Ultimate MTProto Proxy Manager & Latency Benchmarking Engine for Telegram*
