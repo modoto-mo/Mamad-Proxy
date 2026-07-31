@@ -1213,37 +1213,49 @@
             const icon = document.getElementById('refreshIcon');
             icon.classList.add('fa-spin');
             
-            try {
-                const subUrl = 'https://raw.githubusercontent.com/dorostkar/mamad-proxy/main/sub.txt';
-                const res = await fetch(subUrl);
-                if (res.ok) {
-                    const text = await res.text();
-                    const regex = /(?:https:\/\/t\.me\/proxy\?|tg:\/\/proxy\?)([^\s"']+)/g;
-                    let parsed = [];
-                    let match;
-                    let idCounter = 1;
-                    while ((match = regex.exec(text)) !== null) {
-                        const params = new URLSearchParams(match[1]);
-                        const server = params.get('server');
-                        const port = params.get('port');
-                        const secret = params.get('secret');
-                        if (server && port && secret) {
-                            parsed.push({
-                                id: idCounter++,
-                                server,
-                                port: parseInt(port),
-                                secret,
-                                pingMs: null,
-                                isTesting: false
-                            });
-                        }
+            const urlsToTry = [
+                'https://c-mamad.ir/mm/mm2/mm3/index.txt',
+                'http://c-mamad.ir/mm/mm2/mm3/index.txt',
+                'https://raw.githubusercontent.com/dorostkar/mamad-proxy/main/sub.txt'
+            ];
+
+            let text = '';
+            for (const subUrl of urlsToTry) {
+                try {
+                    const res = await fetch(subUrl);
+                    if (res.ok) {
+                        text = await res.text();
+                        if (text && text.trim().length > 0) break;
                     }
-                    if (parsed.length > 0) {
-                        homeProxies = parsed;
+                } catch(e) {
+                    console.warn('Failed to fetch from ' + subUrl, e);
+                }
+            }
+
+            if (text) {
+                const regex = /(?:https:\/\/t\.me\/proxy\?|tg:\/\/proxy\?)([^\s"']+)/g;
+                let parsed = [];
+                let match;
+                let idCounter = 1;
+                while ((match = regex.exec(text)) !== null) {
+                    const params = new URLSearchParams(match[1]);
+                    const server = params.get('server');
+                    const port = params.get('port');
+                    const secret = params.get('secret');
+                    if (server && port && secret) {
+                        parsed.push({
+                            id: idCounter++,
+                            server,
+                            port: parseInt(port),
+                            secret,
+                            pingMs: null,
+                            isTesting: false
+                        });
                     }
                 }
-            } catch(e) {
-                console.warn('Could not fetch external subscription, using default list:', e);
+                if (parsed.length > 0) {
+                    homeProxies = parsed;
+                }
             }
 
             if (homeProxies.length === 0) {
