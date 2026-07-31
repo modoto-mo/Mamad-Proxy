@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamad Proxy Web | Next-Gen Telegram MTProto Web Client & Scanner</title>
+    <meta name="description" content="Official Web Dashboard for Mamad Proxy. Manage local MTProto proxies, test pings, scan Telegram subscription links, export .mdprxy files, and generate QR codes with Liquid Glass UI.">
+    <meta name="theme-color" content="#0B0F19">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --bg-glass: rgba(17, 24, 39, 0.65);
+            --bg-glass-hover: rgba(30, 41, 59, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-glow: rgba(6, 182, 212, 0.4);
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --gradient-main: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+            --font-family: 'Plus Jakarta Sans', 'Vazirmatn', sans-serif;
+        }
+
+        [dir="rtl"] {
+            --font-family: 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ambient Glowing Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .glow-1 { top: -100px; left: -100px; width: 450px; height: 450px; background: rgba(6, 182, 212, 0.2); }
+        .glow-2 { bottom: -100px; right: -100px; width: 500px; height: 500px; background: rgba(139, 92, 246, 0.2); }
+
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 36px 36px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--card-border);
+            padding: 16px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .brand:hover img {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .nav-tabs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 5px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-main);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-header {
+            padding: 8px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-header:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        /* App Wrapper Layout */
+        .app-body {
+            flex-grow: 1;
+            padding: 32px 0 60px;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Page Titles */
+        .pane-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .pane-title-group h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pane-title-group p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 28px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            transition: border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Textarea Input */
+        .proxy-textarea {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            color: var(--text-primary);
+            font-family: monospace;
+            font-size: 0.95rem;
+            outline: none;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .proxy-textarea:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Buttons & Actions */
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-main {
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+        }
+
+        .btn-cyan {
+            background: var(--gradient-main);
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-cyan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.45);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+        }
+
+        /* Grid Layout for Proxies */
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .proxy-item-card {
+            background: var(--gradient-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 22px;
+            backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .proxy-item-card:hover {
+            border-color: var(--card-border-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .server-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            word-break: break-all;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .port-badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+        }
+
+        .secret-code {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            word-break: break-all;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .ping-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .ping-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .ping-orange { background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .ping-red { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .btn-card-action {
+            flex: 1;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn-card-connect {
+            background: var(--gradient-main);
+            color: #ffffff;
+        }
+
+        .btn-card-connect:hover {
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-card-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border-color: var(--card-border);
+        }
+
+        .btn-card-secondary:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        #qrContainer {
+            margin: 20px auto;
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 16px;
+            width: max-content;
+        }
+
+        /* Toast Popup */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--accent-cyan);
+            color: #0b0f19;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.5);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 300;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs { width: 100%; overflow-x: auto; justify-content: flex-start; }
+            .nav-content { flex-direction: column; gap: 16px; align-items: flex-start; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            .pane-header { flex-direction: column; align-items: flex-start; }
+            .btn-group { width: 100%; }
+            .btn-main { flex: 1; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+
+    <!-- Top Navigation Header -->
+    <header>
+        <div class="container nav-content">
+            <a href="index.html" class="brand">
+                <img src="app/src/main/res/drawable/ic_launcher_foreground_processed.png" alt="Mamad Proxy">
+                <span>MAMAD PROXY WEB</span>
+            </a>
+
+            <!-- Tab Buttons -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('scanner')">
+                    <i class="fas fa-search"></i>
+                    <span data-en="Scanner & Extractor" data-fa="اسکنر و استخراج">Scanner & Extractor</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab('local')">
+                    <i class="fas fa-folder"></i>
+                    <span data-en="Local Proxies" data-fa="پروکسی‌های لوکال">Local Proxies</span>
+                    <span id="localBadgeCount" style="background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">0</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab('settings')">
+                    <i class="fas fa-cog"></i>
+                    <span data-en="Subscriptions & Settings" data-fa="سابسکریپشن و تنظیمات">Subscriptions & Settings</span>
+                </button>
+            </div>
+
+            <div class="nav-right">
+                <button class="btn-header" id="langToggleBtn">
+                    <i class="fas fa-globe"></i>
+                    <span id="langLabel">فارسی</span>
+                </button>
+                <a href="index.html" class="btn-header"><i class="fas fa-arrow-left"></i> README</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <div class="app-body">
+        <div class="container">
+
+            <!-- TAB 1: SCANNER & EXTRACTOR -->
+            <div class="tab-pane active" id="pane-scanner">
+                <div class="pane-header">
+                    <div class="pane-title-group">
+                        <h2 data-en="🔍 Proxy Link Extractor & Latency Tester" data-fa="🔍 استخراج لینک پروکسی و تست پینگ">🔍 Proxy Link Extractor & Latency Tester</h2>
+                        <p data-en="Paste Telegram messages, raw links, or proxy lists. Auto-extract, benchmark speed, and bookmark to Local Proxies." data-fa="متن متنی، لینک‌های تلگرام یا سابسکریپشن را وارد کنید تا به‌صورت خودکار پارس، تست پینگ و ذخیره شوند.">Paste Telegram messages, raw links, or proxy lists. Auto-extract, benchmark speed, and bookmark to Local Proxies.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <textarea id="scannerTextarea" class="proxy-textarea" placeholder="Paste raw MTProto proxy links or Telegram posts here...&#10;e.g. https://t.me/proxy?server=168.119.161.251&port=443&secret=3XnnAQIAAQAH8AMDhuJMOt0&#10;or tg://proxy?server=..."></textarea>
+                    
+                    <div class="btn-group">
+                        <button class="btn-main btn-cyan" onclick="extractAndScan()">
+                            <i class="fas fa-bolt"></i>
+                            <span data-en="Extract & Parse Proxies" data-fa="استخراج و پارس پروکسی‌ها">Extract & Parse Proxies</span>
+                        </button>
+                        <button class="btn-main btn-outline" onclick="pingAllExtracted()">
+                            <i class="fas fa-sync-alt" id="scanPingSpin"></i>
+                            <span data-en="Ping All Links" data-fa="تست پینگ همه">Ping All Links</span>
+                        </button>
+                        <button class="btn-main btn-outline" onclick="saveAllToLocal()">
+                            <i class="fas fa-bookmark"></i>
+                            <span data-en="Save All to Local" data-fa="ذخیره همه در لوکال">Save All to Local</span>
+                        </button>
+                        <button class="btn-main btn-danger" onclick="clearScannerText()">
+                            <i class="fas fa-trash-alt"></i>
+                            <span data-en="Clear" data-fa="پاک کردن">Clear</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;" id="extractedResultsSection">
+                    <div class="pane-header">
+                        <h3 style="font-size: 1.2rem; font-weight: 800;" id="extractedCountLabel" data-en="Extracted Proxies (0)" data-fa="پروکسی‌های استخراج‌شده (۰)">Extracted Proxies (0)</h3>
+                    </div>
+                    <div class="proxy-grid" id="extractedGrid"></div>
+                </div>
+            </div>
+
+            <!-- TAB 2: LOCAL PROXIES -->
+            <div class="tab-pane" id="pane-local">
+                <div class="pane-header">
+                    <div class="pane-title-group">
+                        <h2 data-en="📁 Local Saved Proxies (Stored in Site Cookies/Data)" data-fa="📁 پروکسی‌های لوکال (ذخیره‌شده در کوکی و داده مرورگر)">📁 Local Saved Proxies</h2>
+                        <p data-en="Manage your persistent proxies. Add, delete, export as .mdprxy, or generate QR code share links." data-fa="مدیریت پروکسی‌های ذخیره‌شده محلی. افزودن، حذف، خروجی .mdprxy و ساخت کد QR.">Manage your persistent proxies. Add, delete, export as .mdprxy, or generate QR code share links.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-main btn-cyan" onclick="openAddModal()">
+                            <i class="fas fa-plus"></i>
+                            <span data-en="Add Proxy Manually" data-fa="افزودن دستی پروکسی">Add Proxy Manually</span>
+                        </button>
+                        <button class="btn-main btn-outline" onclick="exportMdPrxy()">
+                            <i class="fas fa-file-export"></i>
+                            <span data-en="Export .mdprxy" data-fa="خروجی .mdprxy">Export .mdprxy</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="proxy-grid" id="localGrid"></div>
+            </div>
+
+            <!-- TAB 3: SUBSCRIPTIONS & SETTINGS -->
+            <div class="tab-pane" id="pane-settings">
+                <div class="pane-header">
+                    <div class="pane-title-group">
+                        <h2 data-en="⚙️ Subscription Links & App Configuration" data-fa="⚙️ لینک‌های سابسکریپشن و تنظیمات">⚙️ Subscription Links & App Configuration</h2>
+                        <p data-en="Configure online proxy subscriptions, automatic site persistence, and backend ping options." data-fa="تنظیمات سابسکریپشن‌های آنلاین پروکسی و نحوه ذخیره‌سازی محلی.">Configure online proxy subscriptions, automatic site persistence, and backend ping options.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-bottom: 24px;">
+                    <h3 style="margin-bottom: 16px; font-size: 1.1rem; font-weight: 800;" data-en="📡 Managed Subscription URLs" data-fa="📡 لینک‌های سابسکریپشن مدیریت‌شده">📡 Managed Subscription URLs</h3>
+                    <div id="subList" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;"></div>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="newSubInput" class="proxy-textarea" style="height: 48px; padding: 12px;" placeholder="https://raw.githubusercontent.com/user/repo/main/proxy.txt">
+                        <button class="btn-main btn-cyan" onclick="addSubscription()">
+                            <i class="fas fa-plus"></i>
+                            <span data-en="Add Subscription" data-fa="افزودن ساب">Add Sub</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 16px; font-size: 1.1rem; font-weight: 800;" data-en="💾 Storage & Site Data Management" data-fa="💾 مدیریت داده و کوکی‌های سایت">💾 Storage & Site Data Management</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;" data-en="Your proxies are safely stored locally in your browser's LocalStorage and Site Cookies. Clearing site data will reset your saved proxies." data-fa="تمام پروکسی‌های شما به‌صورت ایمن در LocalStorage و کوکی‌های مرورگر ذخیره شده‌اند.">Your proxies are safely stored locally in your browser's LocalStorage and Site Cookies.</p>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn-main btn-danger" onclick="clearAllData()">
+                            <i class="fas fa-trash"></i>
+                            <span data-en="Clear All Local Proxies & Reset" data-fa="حذف کامل تمام پروکسی‌های محلی">Clear All Local Proxies</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div class="modal-overlay" id="qrModal" onclick="closeQrModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3 id="qrModalServer" style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary);">Proxy QR Code</h3>
+            <div id="qrContainer"></div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px;">Scan with Mamad Proxy Android App or Camera</p>
+            <button class="btn-main btn-outline" style="width: 100%; justify-content: center;" onclick="closeQrModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Add Proxy Manual Modal -->
+    <div class="modal-overlay" id="addModal" onclick="closeAddModal()">
+        <div class="modal-content" onclick="event.stopPropagation()" style="text-align: left; max-width: 480px;">
+            <h3 style="margin-bottom: 16px; font-size: 1.2rem;" data-en="Add New MTProto Proxy" data-fa="افزودن پروکسی جدید">Add New MTProto Proxy</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" id="manualServer" class="proxy-textarea" style="height: 44px; padding: 10px;" placeholder="Server IP or Domain (e.g. 1.2.3.4)">
+                <input type="text" id="manualPort" class="proxy-textarea" style="height: 44px; padding: 10px;" placeholder="Port (e.g. 443)">
+                <input type="text" id="manualSecret" class="proxy-textarea" style="height: 44px; padding: 10px;" placeholder="Secret Key (e.g. dd... or 3X...)">
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-main btn-cyan" style="flex: 1; justify-content: center;" onclick="saveManualProxy()">Save Proxy</button>
+                <button class="btn-main btn-outline" style="flex: 1; justify-content: center;" onclick="closeAddModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div class="toast" id="toast">Action completed!</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Mamad Proxy Web Client &bull; Built with Liquid Glass Architecture &bull; 100% Client-Side Persistent</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data State Engine
+        let currentLang = 'en';
+        let extractedProxies = [];
+        let localProxies = [];
+        let subscriptions = [
+            'https://raw.githubusercontent.com/dorostkar/mamad-proxy/main/sub.txt'
+        ];
+
+        // Sample initial proxies
+        const defaultScannerInput = `https://t.me/proxy?server=168.119.161.251&port=443&secret=3XnnAQIAAQAH8AMDhuJMOt0
+https://t.me/proxy?server=195.254.165.249&port=25565&secret=dd79e344818749bd7ac519130220c25d09
+https://t.me/proxy?server=mask.vak1l.ir&port=22&secret=dd79e7010200010007f0030386e24c3add`;
+
+        // Local Storage & Cookie Helper
+        function saveToStorage() {
+            try {
+                localStorage.setItem('mamad_local_proxies', JSON.stringify(localProxies));
+                localStorage.setItem('mamad_subscriptions', JSON.stringify(subscriptions));
+                // Backup to cookies
+                document.cookie = "mamad_count=" + localProxies.length + "; path=/; max-age=31536000";
+            } catch(e) { console.error('Storage write error', e); }
+            updateBadgeCount();
+        }
+
+        function loadFromStorage() {
+            try {
+                const storedLocal = localStorage.getItem('mamad_local_proxies');
+                if (storedLocal) {
+                    localProxies = JSON.parse(storedLocal);
+                } else {
+                    // Seed initial demo proxies in local
+                    localProxies = [
+                        { server: '168.119.161.251', port: '443', secret: '3XnnAQIAAQAH8AMDhuJMOt0', ping: 48 },
+                        { server: '195.254.165.249', port: '25565', secret: 'dd79e344818749bd7ac519130220c25d09', ping: 72 }
+                    ];
+                    saveToStorage();
+                }
+
+                const storedSubs = localStorage.getItem('mamad_subscriptions');
+                if (storedSubs) subscriptions = JSON.parse(storedSubs);
+            } catch(e) { console.error('Storage read error', e); }
+            updateBadgeCount();
+        }
+
+        function updateBadgeCount() {
+            document.getElementById('localBadgeCount').textContent = localProxies.length;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(`pane-${tabId}`).classList.add('active');
+
+            if (tabId === 'local') renderLocalProxies();
+            if (tabId === 'settings') renderSubscriptions();
+        }
+
+        // Extractor Logic
+        function extractAndScan() {
+            const rawText = document.getElementById('scannerTextarea').value;
+            const regex = /(?:https:\/\/t\.me\/proxy\?|tg:\/\/proxy\?)([^\s"']+)/g;
+            
+            extractedProxies = [];
+            let match;
+
+            while ((match = regex.exec(rawText)) !== null) {
+                const params = new URLSearchParams(match[1]);
+                const server = params.get('server');
+                const port = params.get('port');
+                const secret = params.get('secret');
+
+                if (server && port && secret) {
+                    extractedProxies.push({ server, port, secret, ping: null });
+                }
+            }
+
+            renderExtracted();
+            showToast(currentLang === 'en' ? `Extracted ${extractedProxies.length} proxies!` : `تعداد ${extractedProxies.length} پروکسی استخراج شد!`);
+        }
+
+        function renderExtracted() {
+            const grid = document.getElementById('extractedGrid');
+            const countLabel = document.getElementById('extractedCountLabel');
+            grid.innerHTML = '';
+
+            countLabel.textContent = (currentLang === 'en' ? 'Extracted Proxies (' : 'پروکسی‌های استخراج‌شده (') + extractedProxies.length + ')';
+
+            if (extractedProxies.length === 0) {
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:30px;">No MTProto proxy links extracted. Paste text above and click Extract.</div>`;
+                return;
+            }
+
+            extractedProxies.forEach((p, idx) => {
+                grid.appendChild(createProxyCard(p, false, idx));
+            });
+        }
+
+        function renderLocalProxies() {
+            const grid = document.getElementById('localGrid');
+            grid.innerHTML = '';
+
+            if (localProxies.length === 0) {
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:50px;">No saved local proxies yet. Add manually or save from Extractor!</div>`;
+                return;
+            }
+
+            localProxies.forEach((p, idx) => {
+                grid.appendChild(createProxyCard(p, true, idx));
+            });
+        }
+
+        function createProxyCard(p, isLocal, idx) {
+            const card = document.createElement('div');
+            card.className = 'proxy-item-card';
+
+            const url = `https://t.me/proxy?server=${p.server}&port=${p.port}&secret=${p.secret}`;
+            let pingClass = 'ping-green';
+            let pingText = p.ping ? `${p.ping} ms` : 'Not pinged';
+            if (p.ping > 150) pingClass = 'ping-orange';
+            if (p.ping === -1) { pingClass = 'ping-red'; pingText = 'Offline'; }
+
+            card.innerHTML = `
+                <div>
+                    <div class="card-top">
+                        <div class="server-title"><i class="fas fa-server" style="color:var(--accent-cyan);"></i> ${p.server}</div>
+                        <span class="port-badge">:${p.port}</span>
+                    </div>
+                    <div class="secret-code">Secret: ${p.secret.substring(0, 18)}...</div>
+                    <div style="margin-bottom: 12px;">
+                        <span class="ping-pill ${pingClass}">${pingText}</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="${url}" class="btn-card-action btn-card-connect"><i class="fas fa-paper-plane"></i> Connect</a>
+                    <button class="btn-card-action btn-card-secondary" onclick="copyText('${url}')"><i class="fas fa-copy"></i></button>
+                    <button class="btn-card-action btn-card-secondary" onclick="showQrModal('${url}', '${p.server}')"><i class="fas fa-qrcode"></i></button>
+                    ${isLocal ? `<button class="btn-card-action btn-danger" style="flex:0 0 38px;" onclick="deleteLocalProxy(${idx})"><i class="fas fa-trash"></i></button>` : `<button class="btn-card-action btn-card-secondary" style="flex:0 0 38px;" onclick="bookmarkProxy(${idx})"><i class="fas fa-bookmark"></i></button>`}
+                </div>
+            `;
+
+            return card;
+        }
+
+        async function pingAllExtracted() {
+            const icon = document.getElementById('scanPingSpin');
+            icon.classList.add('fa-spin');
+
+            for (let i = 0; i < extractedProxies.length; i++) {
+                const p = extractedProxies[i];
+                const start = performance.now();
+                try {
+                    await fetch(`https://${p.server}:${p.port}`, { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+                    p.ping = Math.round(performance.now() - start);
+                } catch(e) { p.ping = -1; }
+                renderExtracted();
+            }
+
+            icon.classList.remove('fa-spin');
+            showToast('Ping test completed!');
+        }
+
+        function bookmarkProxy(idx) {
+            const p = extractedProxies[idx];
+            if (p) {
+                localProxies.push({ ...p });
+                saveToStorage();
+                showToast('Saved to Local Proxies!');
+            }
+        }
+
+        function saveAllToLocal() {
+            if (extractedProxies.length === 0) return;
+            extractedProxies.forEach(p => localProxies.push({ ...p }));
+            saveToStorage();
+            showToast(`Saved ${extractedProxies.length} proxies to Local!`);
+        }
+
+        function deleteLocalProxy(idx) {
+            localProxies.splice(idx, 1);
+            saveToStorage();
+            renderLocalProxies();
+            showToast('Proxy removed!');
+        }
+
+        function clearScannerText() {
+            document.getElementById('scannerTextarea').value = '';
+            extractedProxies = [];
+            renderExtracted();
+        }
+
+        function copyText(str) {
+            navigator.clipboard.writeText(str).then(() => showToast('Copied to clipboard!'));
+        }
+
+        // Export .mdprxy file
+        function exportMdPrxy() {
+            if (localProxies.length === 0) return showToast('No local proxies to export.');
+            
+            const content = localProxies.map(p => `https://t.me/proxy?server=${p.server}&port=${p.port}&secret=${p.secret}`).join('\n');
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mamad_proxies.mdprxy';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('Exported .mdprxy file!');
+        }
+
+        // Modals
+        function showQrModal(url, server) {
+            const modal = document.getElementById('qrModal');
+            const container = document.getElementById('qrContainer');
+            document.getElementById('qrModalServer').textContent = server;
+            
+            container.innerHTML = '';
+            new QRCode(container, { text: url, width: 200, height: 200 });
+            modal.style.display = 'flex';
+        }
+
+        function closeQrModal() { document.getElementById('qrModal').style.display = 'none'; }
+        function openAddModal() { document.getElementById('addModal').style.display = 'flex'; }
+        function closeAddModal() { document.getElementById('addModal').style.display = 'none'; }
+
+        function saveManualProxy() {
+            const server = document.getElementById('manualServer').value.trim();
+            const port = document.getElementById('manualPort').value.trim();
+            const secret = document.getElementById('manualSecret').value.trim();
+
+            if (server && port && secret) {
+                localProxies.push({ server, port, secret, ping: null });
+                saveToStorage();
+                closeAddModal();
+                renderLocalProxies();
+                showToast('Proxy added manually!');
+            }
+        }
+
+        function renderSubscriptions() {
+            const list = document.getElementById('subList');
+            list.innerHTML = '';
+            subscriptions.forEach((sub, i) => {
+                const item = document.createElement('div');
+                item.style.cssText = 'display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.3); padding:10px 16px; border-radius:12px; border:1px solid var(--card-border);';
+                item.innerHTML = `<span style="font-family:monospace; font-size:0.85rem; color:var(--text-primary); word-break:break-all;">${sub}</span>
+                <button class="btn-card-action btn-danger" style="flex:0 0 32px; height:32px; padding:0;" onclick="removeSub(${i})"><i class="fas fa-trash"></i></button>`;
+                list.appendChild(item);
+            });
+        }
+
+        function addSubscription() {
+            const val = document.getElementById('newSubInput').value.trim();
+            if (val) {
+                subscriptions.push(val);
+                saveToStorage();
+                document.getElementById('newSubInput').value = '';
+                renderSubscriptions();
+                showToast('Subscription URL added!');
+            }
+        }
+
+        function removeSub(i) {
+            subscriptions.splice(i, 1);
+            saveToStorage();
+            renderSubscriptions();
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all local proxies?')) {
+                localProxies = [];
+                saveToStorage();
+                renderLocalProxies();
+                showToast('All local data cleared.');
+            }
+        }
+
+        // Language toggle
+        document.getElementById('langToggleBtn').addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'fa' : 'en';
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', currentLang === 'fa' ? 'rtl' : 'ltr');
+            document.getElementById('langLabel').textContent = currentLang === 'en' ? 'فارسی' : 'English';
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.textContent = text;
+            });
+            renderExtracted();
+            renderLocalProxies();
+        });
+
+        // Initialize on load
+        loadFromStorage();
+        document.getElementById('scannerTextarea').value = defaultScannerInput;
+        extractAndScan();
+    </script>
+</body>
+</html>
