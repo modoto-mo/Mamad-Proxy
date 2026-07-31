@@ -1156,6 +1156,10 @@
         }
 
         function getTgUrl(p) {
+            return `tg://proxy?server=${p.server}&port=${p.port}&secret=${p.secret}`;
+        }
+
+        function getHttpsUrl(p) {
             return `https://t.me/proxy?server=${p.server}&port=${p.port}&secret=${p.secret}`;
         }
 
@@ -1170,18 +1174,86 @@
             if (tab === 'local') renderLocalTab();
         }
 
+        // REAL Ping Function via PHP TCP socket or real network probe (NO random math)
+        async function pingServerReal(server, port) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), timeoutMs + 1000);
+                const res = await fetch(`ping.php?server=${encodeURIComponent(server)}&port=${port}&timeout=${timeoutMs}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.status === 'ok' && typeof data.ping === 'number') {
+                        return data.ping;
+                    } else if (data.status === 'offline') {
+                        return -1;
+                    }
+                }
+            } catch(e) {
+                console.warn('Real socket ping backend failed/unreachable, performing direct fetch timing:', e);
+            }
+
+            // Client-side fallback TCP/HTTP timing probe (REAL measurement)
+            try {
+                const start = performance.now();
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+                await fetch(`https://${server}:${port}`, { mode: 'no-cors', cache: 'no-store', signal: controller.signal });
+                clearTimeout(timeoutId);
+                return Math.round(performance.now() - start);
+            } catch(e) {
+                return -1; // Offline
+            }
+        }
+
         // Home Proxies Logic
-        function fetchHomeProxies() {
+        async function fetchHomeProxies() {
             const icon = document.getElementById('refreshIcon');
             icon.classList.add('fa-spin');
             
-            setTimeout(() => {
+            try {
+                const subUrl = 'https://raw.githubusercontent.com/dorostkar/mamad-proxy/main/sub.txt';
+                const res = await fetch(subUrl);
+                if (res.ok) {
+                    const text = await res.text();
+                    const regex = /(?:https:\/\/t\.me\/proxy\?|tg:\/\/proxy\?)([^\s"']+)/g;
+                    let parsed = [];
+                    let match;
+                    let idCounter = 1;
+                    while ((match = regex.exec(text)) !== null) {
+                        const params = new URLSearchParams(match[1]);
+                        const server = params.get('server');
+                        const port = params.get('port');
+                        const secret = params.get('secret');
+                        if (server && port && secret) {
+                            parsed.push({
+                                id: idCounter++,
+                                server,
+                                port: parseInt(port),
+                                secret,
+                                pingMs: null,
+                                isTesting: false
+                            });
+                        }
+                    }
+                    if (parsed.length > 0) {
+                        homeProxies = parsed;
+                    }
+                }
+            } catch(e) {
+                console.warn('Could not fetch external subscription, using default list:', e);
+            }
+
+            if (homeProxies.length === 0) {
                 homeProxies = JSON.parse(JSON.stringify(defaultProxies));
-                if (isAutoSort) homeProxies.sort((a, b) => (a.pingMs || 999) - (b.pingMs || 999));
-                renderHomeGrid();
-                icon.classList.remove('fa-spin');
-                showToast(currentLang === 'fa' ? 'لیست پروکسی‌ها بروزرسانی شد' : 'Proxy list updated');
-            }, 600);
+            }
+
+            if (isAutoSort) homeProxies.sort((a, b) => (a.pingMs || 9999) - (b.pingMs || 9999));
+            renderHomeGrid();
+            icon.classList.remove('fa-spin');
+            showToast(currentLang === 'fa' ? 'لیست پروکسی‌ها بروزرسانی شد' : 'Proxy list updated');
         }
 
         async function testAllHomeProxies() {
@@ -1191,14 +1263,19 @@
             for (let i = 0; i < homeProxies.length; i++) {
                 homeProxies[i].isTesting = true;
                 renderHomeGrid();
-                const start = performance.now();
-                await new Promise(r => setTimeout(r, 150 + Math.random() * 200));
-                homeProxies[i].pingMs = Math.round(performance.now() - start);
+                
+                const pingResult = await pingServerReal(homeProxies[i].server, homeProxies[i].port);
+                homeProxies[i].pingMs = pingResult;
                 homeProxies[i].isTesting = false;
                 renderHomeGrid();
             }
 
-            if (isAutoSort) homeProxies.sort((a, b) => (a.pingMs || 999) - (b.pingMs || 999));
+            if (isAutoSort) homeProxies.sort((a, b) => {
+                if (a.pingMs === -1) return 1;
+                if (b.pingMs === -1) return -1;
+                return (a.pingMs || 9999) - (b.pingMs || 9999);
+            });
+
             renderHomeGrid();
             icon.className = 'fas fa-tachometer-alt';
             showToast(currentLang === 'fa' ? 'تست پینگ تمام شد' : 'Ping testing finished');
@@ -1307,8 +1384,8 @@
             if (p) {
                 p.isTesting = true;
                 renderHomeGrid();
-                await new Promise(r => setTimeout(r, 200));
-                p.pingMs = Math.round(30 + Math.random() * 80);
+                const pingResult = await pingServerReal(p.server, p.port);
+                p.pingMs = pingResult;
                 p.isTesting = false;
                 renderHomeGrid();
             }
